@@ -3,7 +3,7 @@ var lienzo = d.getContext("2d");
 var lineas = 30;
 var l = 0;
 var yi, xf;
-var colorcito = "#FAA";
+var colorcito = "#FFAA";
 
 for(l=0; l < lineas; l++)
 {
