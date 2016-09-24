@@ -1,9 +1,18 @@
 var d = document.getElementById("dibujito");
 var lienzo = d.getContext("2d");
+var lineas = 30;
+var l = 0;
+
+while()
+{
+  
+}
+
 console.log(lienzo);
 
-dibujarLinea("pink", 10, 300, 220, 10);
-dibujarLinea("yellow", 300, 10, 10, 220);
+dibujarLinea("#AAF", 0, 0 , 10, 300);
+dibujarLinea("#AAF", 0, 10, 20, 300);
+dibujarLinea("#AAF", 0, 20, 30, 300);
 
 function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal)
 {
