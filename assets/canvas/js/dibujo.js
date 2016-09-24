@@ -2,17 +2,19 @@ var d = document.getElementById("dibujito");
 var lienzo = d.getContext("2d");
 var lineas = 30;
 var l = 0;
+var yi, xf;
 
-while()
+while(l < lineas)
 {
-  
+  yi = 10 * l;
+  xf = 10 * (l + 1);
+  dibujarLinea("#AAF", 0 , yi, xf, 300);
+  console.log("linea " + l);
+  l = l + 1;
 }
+  dibujarLinea("#AFA", 1, 1, 1, 300);
+  dibujarLinea("#AFA", 1, 299, 299, 299);
 
-console.log(lienzo);
-
-dibujarLinea("#AAF", 0, 0 , 10, 300);
-dibujarLinea("#AAF", 0, 10, 20, 300);
-dibujarLinea("#AAF", 0, 20, 30, 300);
 
 function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal)
 {
