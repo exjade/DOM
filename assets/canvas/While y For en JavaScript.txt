@@ -1,0 +1,211 @@
+----------------------------------------------------------------
+
+Otro concepto fundamenteal en programación son los ciclos. Los ciclos son piezas de código que se repiten hasta que se cumple una condición.
+RECUERDA: *Ten cuidado de no crear ciclos infinitos que bloqueen el navegador.
+----------------------------------------------------------------
+Vamos a hacer un código que automaticamente nos dibuje todas las líneas con un limite. ¿Cuál es el limite? Si lo vamos a hacer cada 10 pixeles y tenemos 300 pixeles de ancho. El limite son 30 líneas y eso lo hacemos con una cosa que se llama "ciclos".
+
+
+----------------------------------------------------------------
+Para crear un ciclo necesitamos primero tener un limite. Los ciclos son piezas de código que ocurren de una manera ciclica. Que no paran y solamente paran cuando les ponemos un limite para que paren. 
+----------------------------------------------------------------
+Vamos a crear un ciclo. El ciclo es algo que ocurre mientras algo sea verdad.
+----------------------------------------------------------------
+Los ciclos funcionan así: Mientras algo sea verdad va ha ocurrir un código.
+
+while(true){}
+
+----------------------------------------------------------------
+Entonces mientras "l" sea menor menor que la variable líneas que vale 30 dibujo una línea. 
+
+"Si yo dejo el código así y no hago nada más, el navegador se va a trabar".
+----------------------------------------------------------------
+----------------------------------------------------------------
+Nos a pasado que a veces nuestro navegador se pone muy lento, esto puede ser porque al programador se le olvidó hacer el código para que un ciclo termine. Fallo en algo e hizo algo que se llama un ciclo infinito
+----------------------------------------------------------------
+----------------------------------------------------------------
+¿Cómo hacemos que este ciclo termine?
+
+En que la expresión de acá (l < lineas) deje de ser verdad.
+----------------------------------------------------------------
+Se parece a una condición. La diferencia es que un "while" ejecuta un código mientras la condición sea verdad.
+----------------------------------------------------------------
+ANTES DE CONTINUAR PODEMOS "DEPURAR", ES DECIR TRATAR DE ENCONTRAR ERRORES EN EL CÓDIGO.
+----------------------------------------------------------------
+¿Cómo entendemos cuál es la ecuación matematica?
+
+El proceso en cada ciclo para calcular el lugar correcto.
+
+Tenemos un ciclo que se mueve con una variable. La varible l. La variable l va del número 0 hasta el número 29 (l = 0-29).
+
+Ahora sabemos cuáles son las cordenas y cómo se mueven. Tenemos la "X" inicial(Xi), tenemos la "Y" inicial(Yi). Tenemos la "X" final(Xf) y tenemos la "Y" final (Yf).
+
+----------------------------------------------------------------
+Si nosotros miramos cómo se mueven la primera X incial es 0,0. 
+Luego la X final. Tenemos la posición en X en un 10. Y la posición en Y en 300. (Ese es el primer ciclo, ahora iteramos para hacer la siguiente línea).
+
+Y = Vertical 
+X = Horizontal
+
+----------------------------------------------------------------
+(X inicial)
+La siguiente línea tiene como primer X, 0 otra vez.
+"Y" que es el eje vertical ahora vale 10.
+(X final)
+La primera X estaría en 20.
+Y sigue siendo 300 porque va hasta abajo. (Luego volvemos a iterar)
+----------------------------------------------------------------
+¿Ahora cuanto vale l?
+
+L = 2
+
+----------------------------------------------------------------
+Arrancamos en 0, luego en 1, después en 2.
+
+(X inicial)
+X inicial vale 0
+Y inicial vale 20
+
+(X final)
+
+X final vale 30
+La Y final sigue valiendo 300
+
+----------------------------------------------------------------
+Ya empezamos a encontrar un patrón con este patrón podemos crear una muy simple ecuación matematica. 
+
+El patrón es que la "X" incial nunca cambia entonces no hay que modificarla en el ciclo. Y la "Y" final tampoco cambia nunca. 
+
+Lo que cambia es la Y inicial(Xi) y la X final(Yf)
+
+
+  Xi   Yi   L
+|----|----|---|
+  0    0    0
+|----|----|---|
+  0    10   1
+|----|----|---|
+  0    20   2 
+|----|----|---|
+
+  Xf    Yf    L
+|----|------|---|
+  10    300   0
+|----|------|---|
+  20    300   1
+|----|------|---|
+  30    300   2 
+|----|------|---|
+
+
+Yi = 10 * l
+
+0 * 0 = 0
+10 * 1 = 10	
+10 * 2 = 20
+10 * 3 = 30
+----------------------------------------------------------------
+La otra variable que cambia no es la "Y final". Es la "X final", entonces cómo sabemos el valor. 
+
+Xf = 10 * (l + 1)
+
+0 + 1 = 1 * 10 = 10
+1 + 1 = 2 * 10 = 20
+1 + 2 = 3 * 10 = 30
+
+
+(Cuando la L vale 0, "X final vale 10").
+(Cuando la L vale 1, "X final vale 20").
+(Cuando la L vale 2, "X final vale 30").
+----------------------------------------------------------------
+' Los  parentesis siempre el navegador o cualquier lenguaje de programación normal como JavaScript los van a ejecutar primero antes de cualquier otra operación '.
+----------------------------------------------------------------
+
+
+El código va a hacer esto.
+
+Va a ver una función y la va a cargar en memoria pero no la va a ejecutar. 
+Luego se va al principio y ejecuta cada una de las líneas hasta llegar al ciclo. Y en el ciclo va a ejecutar este ciclo tantas veces como está "( l < lineas )" operación sea verdad. 
+
+----------------------------------------------------------------
+
+
+Canvas tiene un problema. Las líneas  las guarda justo a la mitad de los pixeles. 
+
+Entre 0 y el 1. La línea se ve más gruesa.
+
+dibujarLinea("#AFA", 0, 0, 0, 300);
+dibujarLinea("#AFA", 1, 1, 1, 300);
+
+Porque 0 hace que la mitad de la línea se vea por un lado y la otra mitad por el otro. (Aprender sobre esto que sucede acá: se llama efecto anti aliasing).
+
+Anti aliasing. Se está dibujando la mitad y no el pixel completo.
+
+----------------------------------------------------------------
+Otra vez no se ve bien. ¿Qué tal si nos devolvemos un pixel y lo hacemos en 299?
+
+dibujarLinea("#AFA", 1, 300, 300, 300);
+
+----------------------------------------------------------------
+
+
+Nosotros hicimos este ciclo diciendole mientras esto "( while(l < lineas )" sea verdad. Haga el ciclo.
+
+{
+  yi = 10 * l;
+  xf = 10 * (l + 1);
+  dibujarLinea(colorcito, 0 , yi, xf, 300);
+  console.log("linea " + l);
+  l = l + 1;
+}
+----------------------------------------------------------------
+Y antes de que termine el ciclo le sume "1" a la "l".
+----------------------------------------------------------------
+
+
+***"DOS MODIFICACIONES QUE HACEN QUE ESTO FUNCIONE IGUAL PERO SON COSAS QUE NOSOTROS NOS VAMOS A ENCONTRAR EN LA PROGRAMACIÓN"***.
+
+1. Hay una forma práctica de sumar + 1. Si nosotros queremos sumarle +1 a una variable con menos código. En vez de colocar variable = a_variable + 1 (l = l + 1;). 
+
+Colocamos variable++. (l++).  Este valor le suma 1, por defecto. (Solamente funciona con 1. (1++)) Si queremos sumarle otro valor debemos usar (variable = variable + 2).
+
+2. Nosotros podemos pegar(1++)acá arriba "( while(l < lineas) )" con otro tipo de ciclo. Que se llama el "ciclo for". 
+
+'For tiene 3 parametros. For es un ciclo que declara primero cuál es la variable que va a ser la que itera (en este caso la variable l). '. 
+
+- Luego tiene algo raro, es raro porque no pasa en ningún otro lugar en JavaScript. "No se separan por coma los parametros sino que se separan con punto y coma (;). (Esto es porque internamente realmente son 3 líneas de código las que se están ejecutando).
+
+- Luego le coloco la condición. (l < lineas) Mientras "l" sea menor que "líneas".
+
+- Ahora puedo hacer el código que se ejecute cada vez por ciclo (l++).
+
+"Suena enredado, ¿no? Pero resulta que los programadores aman esto. Es la forma normal de hacer ciclos".
+
+Para una variable "l" que es la que va a iterar, que va a cambiar en cada ciclo.  Mientras esa variable sea menor que lineas (siempre va a valer "30").  Sumale (l++) uno en cada ciclo.
+
+Así funciona el ciclo for y esto hace que todas las cosas esten centradas en un sólo lugar.
+----------------------------------------------------------------
+
+for(l=0; )
+{
+  yi = 10 * l;
+  xf = 10 * (l + 1);
+  dibujarLinea(colorcito, 0 , yi, xf, 300);
+  console.log("linea " + l);
+}
+----------------------------------------------------------------
+TAREA: 
+
+Averiguar sobre un ciclo especial. Ese ciclo se llama "do while". (Es básicamente tener un while al final).
+----------------------------------------------------------------
+
+DESAFIO
+
+Lo siguiente que vamos a hacer es permitirle a nuestro usuario decidir exactamente cuantas líneas quiere colocar y que esto se dibuje de una caja dinámica con una caja de texto. Es casi lo mismo pero que el borde de la esquina sea el borde superior derecho. (Es decir dale la vuelta y que se dibuje ahí).
+
+
+
+
+
+
+

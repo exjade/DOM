@@ -1,0 +1,3 @@
+Lo que hace es primero ejecutar código y después nos hace una comparación
+
+Primero ejecuta un código y después hace la comprobación
